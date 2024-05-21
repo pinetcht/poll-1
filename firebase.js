@@ -6,7 +6,7 @@ import { getFirestore } from "firebase/firestore";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyD23aWhl-gp5AwsTOklYiRWEBf2yYoMwPE",
+  apiKey: import.meta.env.VITE_KEY,
   authDomain: "poll-miniproject.firebaseapp.com",
   projectId: "poll-miniproject",
   storageBucket: "poll-miniproject.appspot.com",

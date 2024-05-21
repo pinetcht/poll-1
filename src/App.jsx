@@ -14,7 +14,9 @@ function App() {
         const querySnapshot = await getDocs(collection(db, "poll"));
         if (querySnapshot != null) {
           const allAnswers = querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
-          setAnswerList(allAnswers)
+          // const e = querySnapshot.docs.map(doc => console.log(doc.data().answer));
+          const e = querySnapshot.docs.map(doc => console.log(doc.data().answer));
+          setAnswerList(e)
 
           console.log(allAnswers)
         } else {
@@ -35,6 +37,15 @@ function App() {
     });
   };
 
+ useEffect(() => {
+  const e = () =>  {
+    answerList.map((answer, key) => 
+      <p>{ answer }</p>
+    )
+  }
+
+}, [answerList])
+
   return (
     <>
       <h1>What's your favorite cereal?</h1>
@@ -45,11 +56,7 @@ function App() {
       </form>
 
       <h2>Vote for your fav cereal!</h2>
-      {
-        answerList.map((answer, key) => 
-          <p>{ answer }</p>
-        )
-      }
+      <e />
       
     </>
   );
